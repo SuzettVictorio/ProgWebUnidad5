@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class Tarea extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class Tarea extends Controller
      */
     public function index()
     {
-        //
+        $users = User::orderBy('id')->paginate();
+        return view('users.index',compact('users'));
     }
 
     /**
@@ -23,7 +25,7 @@ class Tarea extends Controller
      */
     public function create()
     {
-        return view('create_user');
+        return view('Users.create');
     }
 
     /**
@@ -34,7 +36,15 @@ class Tarea extends Controller
      */
     public function store(Request $request)
     {
-        echo "<br/>". $request->email;
+        $user = new User();
+        $user ->name = $request -> name;
+        $user ->lastname = $request -> lastname;
+        $user ->email = $request -> email;
+        $user ->password = $request -> password;
+
+        $user -> save();
+
+        return redirect()->route('users.index');
     }
 
     /**
@@ -45,7 +55,9 @@ class Tarea extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+
+        return view('users.details',compact('user'));
     }
 
     /**
@@ -68,7 +80,7 @@ class Tarea extends Controller
      */
     public function update(Request $request, $id)
     {
-        echo $id;
+        //
     }
 
     /**
