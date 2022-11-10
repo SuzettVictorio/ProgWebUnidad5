@@ -5,6 +5,10 @@
 
 @section('content')
 
+<h1>
+    Usuarios del sistema
+</h1>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -31,5 +35,7 @@
 
 </table>
 {{$users->links()}}
+
+
 
 @endsection

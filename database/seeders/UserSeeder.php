@@ -6,6 +6,11 @@ use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+public function index(){
+    $users = User::select('name')->get();
+    return view('user.index',compact('users'));
+}
+
 class UserSeeder extends Seeder
 {
     /**
