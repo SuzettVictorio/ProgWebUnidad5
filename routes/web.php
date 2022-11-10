@@ -21,10 +21,8 @@ Route::get('/login',fuction(){
 })->name('login');
 Route::get('/home',fuction(){
     return view('auth.home');
-})->name('login');
-Route::get('/logout',fuction(){
-    return view('auth.logout');
-})->name('logout');
+})->name('home');
+
 
 
 
