@@ -1,11 +1,3 @@
-@extends('layouts.app')
-
-@section('head')
-<!-- Hola soy una prueba -->
-
-@endsection
-
-@section('content')
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,4 +30,3 @@
 
 </body>
 </html>
-@endsection
