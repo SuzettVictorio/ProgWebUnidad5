@@ -4,21 +4,32 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<style type="text/css">
-		body{
-			background-color: gray;
-		}
-	</style>
 </head>
-<body>	
+<body>
 
 	<h1>
-		Login
+		Registro de usuario
 	</h1>
 
-	<form method="post" action="{{ url('login') }}">
+	<form method="post" action="http://127.0.0.1:8000/users/">
 		
-		@csrf 
+		@csrf
+
+		<label>
+			Nombre
+		</label>
+		<input type="text" name="name">
+
+		<br>
+		<br>
+
+		<label>
+			Apellido
+		</label>
+		<input type="text" name="lastname">
+
+		<br>
+		<br>
 
 		<label>
 			Email
@@ -37,9 +48,21 @@
 		<br>
 
 		<button>
-			Acceder
+			Guardar
 		</button>
 	</form>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

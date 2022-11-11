@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -14,8 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id')->paginate();
-        return view('users.index',compact('users'));
+        $users = User::all();
+
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -25,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('Users.create');
+        return view('create_user');
     }
 
     /**
@@ -36,15 +38,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User();
-        $user ->name = $request -> name;
-        $user ->lastname = $request -> lastname;
-        $user ->email = $request -> email;
-        $user ->password = $request -> password;
+        
+        $user = User::create( $request->all() );
 
-        $user -> save();
-
-        return redirect()->route('users.index');
+        return $user;
     }
 
     /**
@@ -54,10 +51,14 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    { 
+
         $user = User::find($id);
 
-        return view('users.details',compact('user'));
+        return view('users.update', compact('user'));
+
+        #return User::where('id',$id)->get();
+
     }
 
     /**
@@ -78,9 +79,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $user = User::find($request->id);
+        if($user){
+            $user->update($request->all());
+        }
     }
 
     /**

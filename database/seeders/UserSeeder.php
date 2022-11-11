@@ -2,14 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-public function index(){
-    $users = User::select('name')->get();
-    return view('user.index',compact('users'));
-}
+use App\Models\User;
 
 class UserSeeder extends Seeder
 {
@@ -20,20 +16,25 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $user = new User();
-        $user->name='Suzett';
-        $user->lastname='Lavi';
-        $user->email='suzett@gmail.com';
-        $user->password=bcrypt('password');
-
+        $user = new User(); 
+        $user->name = 'Jonathan';
+        $user->lastname = 'Soto';
+        $user->email = 'jsoto@uabcs.mx';
+        $user->password = bcrypt('password'); 
         $user->save();
 
-        $user = new User();
-        $user->name='Suzett';
-        $user->lastname='Lavi';
-        $user->email='suzett@gmail.com';
-        $user->password= bcrypt('password');
+        $user = new User(); 
+        $user->name = 'Edgar';
+        $user->lastname = 'Alvarez';
+        $user->email = 'edgar@alu.uabcs.mx';
+        $user->password = bcrypt('password1'); 
         $user->save();
     }
 }
+
+
+
+
+
+
 

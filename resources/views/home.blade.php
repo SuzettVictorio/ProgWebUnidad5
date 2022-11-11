@@ -12,26 +12,21 @@
 </head>
 <body>
 
-	<h1>
-		Usuarios del sistema:
+	<h1>  
+		Hola {{ Auth::user()->name }}
 	</h1>
 
-	<ol>
-		
-		@foreach ($users as $user)
-			<li>
-				
-				{{ $user->name }} 
+	<a href="{{ url('users') }}">
+		ir a usuarios
+	</a>
 
-				<a href="{{ url('/users', $user->id) }}">
-					Editar
-				</a>
+	<form method="post" action="{{ url('logout') }}">
+		@csrf
 
-			</li>
-		@endforeach
-
-	</ol>
-
+		<button type="submit">
+			Salir
+		</button>
+	</form>
 
 </body>
 </html>

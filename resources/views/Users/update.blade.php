@@ -1,49 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		body{
+			background-color: gray;
+		}
+	</style>
 </head>
 <body>
-    
-    <h1>Editar usuario</h1>
-    <form method "post" action="http://127.0.0.1:8000">
-        @csrf
-        <div class="row text-center">
+	<h1>
+		Editar usuario
+	</h1>
 
-            <div class="row mb-4">
-                <div class="col-lg-6  col-sm-12">
-                    <div class="form-outline text-start">
-                        <label class="form-label" for="name">First name</label>
-                        <input type="text" name="name" id="name" class="form-control" />
-                    </div>
-                </div>
+	<form method="post" action="{{url ('/users')}}">
+		
+		@csrf
+		@method ('PUT')
 
-                <div class="col-lg-6  col-sm-12">
-                    <div class="form-outline text-start">
-                        <label class="form-label" for="lastname">Last name</label>
-                        <input type="text" name="lastname" id="lastname" class="form-control" />
-                    </div>
-                </div>
-            </div>
+		<input type="hidden" name="id" value="{{ $user->id }}">
 
-            <div class="row mb-4">
-                <div class="col-lg-6 col-sm-12">
-                    <div class="form-outline mb-4 text-start">
-                        <label class="form-label" for="form3Example3">Email address</label>
-                        <input type="email" name="email" id="email" class="form-control" />
-                    </div>
-                </div>
-               
-            </div>
+		<label>
+			Nombre
+		</label>
+		<input type="text" value="{{ $user->name }}" name="name">
 
-            <div class="col-sm-12">
-                <button type="submit" class="btn btn-primary btn-block mb-4">Editar usuario</button>
-            </div>
-        </div>
+		<br>
+		<br>
 
-    </form>
+		<label>
+			Apellido
+		</label>
+		<input type="text" value="{{ $user->lastname }}" name="lastname">
+
+		<br>
+		<br>
+
+		<label>
+			Email
+		</label>
+		<input type="email" value="{{ $user->email }}" name="email">
+
+		 
+
+		<br>
+		<br>
+
+		<button>
+			Guardar
+		</button>
+	</form>
+
 </body>
 </html>

@@ -16,16 +16,25 @@ class ClientSeeder extends Seeder
     public function run()
     {
         DB::table('clients')->insert([
-            'name' => 'Angel',
-            'lastname' => 'Aviles',
-            'email' => 'krazick@gmail.com',
-            'phone_number' => '61255555555',
+            'name' => 'Jonathan',
+            'lastname' => 'Soto',
+            'email' => 'jsoto@uabcs.mx',
+            'phone_number' => '6120000000'
         ]);
+
         DB::table('clients')->insert([
-            'name' => 'Jesus',
-            'lastname' => 'Cota',
-            'email' => 'krazick23@gmail.com',
-            'phone_number' => '61266666666',
+            'name' => 'Isaac',
+            'lastname' => 'Parkour',
+            'email' => 'isaco_lokito_moxxito@gmail.com',
+            'phone_number' => '6120000000'
         ]);
     }
 }
+
+
+
+
+
+
+
+
